@@ -1,10 +1,53 @@
-// Date class
-const date = new Date();
+class Product {
+  constructor(
+    public id: string,
+    public price: number,
+    public description: string
+  ) {}
 
-const currentYear = date.toISOString();
+  public display(): void {
+    console.log("Display product");
+  }
+}
+/**Book class extends the Product class */
+class Book extends Product {
+  constructor(
+    public id: string,
+    public price: number,
+    public description: string,
+    public author: string,
+    public title: string
+  ) {
+    super(id, price, description);
+  }
 
-const currentMonth = date.getMonth() + 1;
+  public display(): void {
+    console.log("Display product from child class");
+  }
+}
 
-const currentDate = date.getDate();
+class Electronic extends Product {
+  constructor(
+    public id: string,
+    public price: number,
+    public description: string,
+    public brand: string,
+    public model: string
+  ) {
+    super(id, price, description);
+  }
 
-console.log("Current", currentYear);
+  public display(): void {
+    console.log("Display product from child class");
+  }
+}
+
+let shakespeare = new Book(
+  "980",
+  500,
+  "hogwarts' tales",
+  "R. K. Rowlings",
+  "Harry Potter"
+);
+
+shakespeare.display();
